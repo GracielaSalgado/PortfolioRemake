@@ -634,8 +634,18 @@ footer a:focus-visible {
   background: #fffbf2;
   color: #200b04;
   cursor: pointer;
-  font-size: 36px;
-  line-height: 1;
+}
+
+.gallery-previous svg,
+.gallery-next svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.5;
 }
 
 .gallery-previous {
