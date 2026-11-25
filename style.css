@@ -582,43 +582,137 @@ footer a:focus-visible {
   outline-offset: 3px;
 }
 
-.graphic-project {
-  display: grid;
-  max-width: 1296px;
-  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-  align-items: start;
-  gap: 28px;
-  margin: 61px auto 0;
+.graphic-carousel {
+  max-width: 1180px;
+  margin: 48px auto 0;
 }
 
-.graphic-project-copy h2 {
-  font-size: 18px;
+.graphic-carousel-stage {
+  position: relative;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+  height: clamp(360px, 68vh, 760px);
+  padding: 24px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #f3eadc;
+  touch-action: pan-y;
+}
+
+.graphic-carousel-artwork {
+  position: relative;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  margin: 0;
+  place-items: center;
+}
+
+.graphic-carousel-artwork img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.gallery-previous,
+.gallery-next {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  display: grid;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  transform: translateY(-50%);
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: #fffbf2;
+  color: #200b04;
+  cursor: pointer;
+  font-size: 36px;
+  line-height: 1;
+}
+
+.gallery-previous {
+  left: 18px;
+}
+
+.gallery-next {
+  right: 18px;
+}
+
+.gallery-previous:hover,
+.gallery-next:hover {
+  background: #f3a01b;
+}
+
+.gallery-previous:focus-visible,
+.gallery-next:focus-visible {
+  outline: 3px solid #200b04;
+  outline-offset: 3px;
+}
+
+.graphic-carousel-info {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 4px;
+}
+
+.graphic-carousel-info h2 {
+  margin: 0 0 8px;
+  font-size: 26px;
   text-align: left;
 }
 
-.graphic-project-copy p {
+.graphic-carousel-info div > p {
+  max-width: 70ch;
   margin: 0;
-  font-size: 16px;
   line-height: 1.6;
 }
 
-.graphic-project-artwork {
-  width: 100%;
-  min-height: 240px;
-  overflow: hidden;
-  border-radius: 20px;
-  background: #e8d9c9;
-}
-
-.graphic-project-artwork img {
-  display: block;
-  width: 100%;
-  height: auto;
+.gallery-status {
+  flex: 0 0 auto;
+  margin: 4px 0 0;
+  color: #776d5d;
+  font-size: 15px;
+  font-weight: 800;
 }
 
 @media (max-width: 800px) {
-  .graphic-project {
-    grid-template-columns: minmax(0, 1fr);
+  .graphic-carousel-stage {
+    height: clamp(320px, 55vh, 540px);
+    padding: 14px;
+  }
+
+  .gallery-previous,
+  .gallery-next {
+    width: 44px;
+    height: 44px;
+    font-size: 30px;
+  }
+
+  .gallery-previous {
+    left: 10px;
+  }
+
+  .gallery-next {
+    right: 10px;
+  }
+
+  .graphic-carousel-info {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .graphic-carousel-info h2 {
+    font-size: 22px;
   }
 }
 
